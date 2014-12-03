@@ -6,7 +6,7 @@ The shortcodes generally have the same options as the regular shortcodes, unless
 ##Items
 - **[nal_recent_items]**: Display a list of recent items without using the default `items/single.php`
 - **[nal_collection_items]**: Includes the parent collection in item list entries.
-- **[nal_featured_item]**: Custom layout for featured item, including x of n count at the bottom of the `div`
+- **[nal_featured_item]**: Custom layout for featured item, "View all n featured items." at the bottom of the `div`
 
 ##Exhibits
 - **[nal_exhibits]**: Returns a longer description with some regular expression replacements.
