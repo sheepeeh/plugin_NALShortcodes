@@ -2,6 +2,8 @@ This plugin was developed by Special Collections at the National Agricultural Li
 
 The shortcodes generally have the same options as the regular shortcodes, unless otherwise noted: http://omeka.org/codex/Shortcodes#Recent_Items 
 
+Images of output are available in the **samples** folder.
+
 #Available Shortcodes
 ##Items
 - **[nal_recent_items]**: Display a list of recent items without using the default `items/single.php`
