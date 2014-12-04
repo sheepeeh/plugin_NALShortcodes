@@ -1,4 +1,5 @@
 <?php
+	// Determine what level heading to use.
 	$h = 3;
 	$dclass = '';
 
@@ -27,13 +28,27 @@
     	     <?php echo  "<a href=\"" . url("/merrigan") . "\" target=\"_blank\" class=\"image\">" . $exhibitImage . "</a>"; ?>
 	    <?php endif; ?>
     <?php endif; ?>
-    <?php if ($exhibitDescription = metadata($exhibit, 'description', array('no_escape' => true, 'snippet' => 500))):
+    <?php if ($exhibitDescription = metadata($exhibit, 'description', array('no_escape' => true, 'snippet' => 750))):
 
-    $exhibitDescription = preg_replace('/Search\sthis\sExhibit/' ,'', $exhibitDescription);
-    $exhibitDescription = preg_replace('/\[exhibit_search\s.*\]/' ,'', $exhibitDescription);
-    $exhibitDescription = preg_replace('/\[build_url.*\]/' ,'', $exhibitDescription);
-    $exhibitDescription = preg_replace('/View\sall\sitems\sin\sthis\sexhibit./' ,'', $exhibitDescription);
-    $exhibitDescription = preg_replace('/View\sall\sitems\sin\sthe.*\./' ,'', $exhibitDescription);
+    		//Replace junk in descriptions (unparsed shortcodes, etc)
+    
+            $patterns = array('/Search\sthis\sExhibit/',
+                '/Search\sthis\sExhibit/',
+                '/\[exhibit_search\s.*\]/',
+                '/\[build_url.*\]/',
+                '/View\sall\sitems\sin\sthis\sexhibit./', 
+                '/View\sall\sitems\sin\sthe.*\./',
+                '/View\sall\sitems\sin\sthe.*\./'
+                );
+
+            $exhibitDescription = preg_replace($patterns ,'', $exhibitDescription);
+            
+            $words = explode(' ',trim($exhibitDescription));
+            $words2 = explode("\r\n",trim($words[0]));
+
+            if ($words2[0] == "Introduction") { 
+                $exhibitDescription = preg_replace('/Introduction/','', $exhibitDescription,1);
+            }
  ?>
         <p><?php echo $exhibitDescription; ?></p>
     <?php endif; ?>

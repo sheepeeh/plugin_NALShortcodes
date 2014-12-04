@@ -1,5 +1,5 @@
 <?php echo $this->form('search-form', $options['form_attributes']); ?>
-<?php echo $this->formText('query', $filters['query'], array('title' => __('Search'), 'placeholder' => '..search this exhibit by keyword..')); ?>
+<?php echo $this->formText('query', $filters['query'], array('title' => __('Search'), 'placeholder' => 'Search this exhibit by keyword.')); ?>
 
 
 <fieldset id="advanced-form">
